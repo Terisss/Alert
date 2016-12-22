@@ -1,0 +1,15 @@
+{% extends 'reg_auth.html' %}
+{% load i18n %}
+{% block 'title' %}
+{% trans "Авторизация" %}
+{% endblock %}
+{% block 'content-body' %}
+{% if er == 1 %}
+<p class="errorlist">{% trans "Вы ввели данные не правильно" %}</p>
+{% endif %}
+<form action="{% url 'login' %}" method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value='{% trans "Авторизация" %}'>
+</form>
+{% endblock %}

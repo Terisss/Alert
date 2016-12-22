@@ -1,0 +1,23 @@
+{% extends 'reg_auth.html' %}
+{% load i18n %}
+{% block 'title' %}
+{% trans "Пользователь" %}
+{% endblock %}
+{% block 'content-body' %}
+<h2>{% trans "Редактировать" %}</h2>
+{% if er == 1 %}
+<p class='errorlist'>{% trans "Данные введены неправильно" %}</p>
+{% endif %}
+<form action="{% url 'update_user' %}" method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value='{% trans "Сохранить" %}'>
+</form>
+<script>
+	$(document).ready(function(){
+		$('#id_first_name').val('{{ user.first_name }}');
+		$('#id_last_name').val('{{ user.last_name }}');
+		$('#id_email').val('{{ user.email }}');
+	});
+</script>
+{% endblock %}

@@ -1,0 +1,143 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #80C8FF;
+	font-family: 'Verdana', sans-serif;
+}
+
+.block {
+	width: 100%;
+	float: left;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	color: #37A;
+	cursor: pointer;
+}
+
+h2 {
+	color: #37f;
+}
+
+textarea {
+	resize: none;
+}
+
+/* HEADER */
+
+#top-header {
+	margin-top: 50px;
+	background-color: #333;
+	color: #80C8FF;
+}
+
+#top-header h1 {
+	text-align: center;
+	cursor: pointer;
+}
+
+span#logo {
+	float: left;
+	font-size: 1.2em;
+	color: #80C8FF;
+	padding: 5px 20px;
+	font-weight: bold;
+}
+
+/* CONTENT */
+
+#content {
+	float: left;
+	width: 960px;
+	background-color: #eff;
+	padding: 20px;
+}
+
+.event {
+	width: 96%;
+	float: left;
+	border: 1px solid #333;
+	padding: 10px 2%;
+}
+.event p {
+	margin: 5px 0;
+}
+
+div.not_active {
+	background-color: grey;
+}
+
+span.not_active {
+	float: left;
+	font-style: italic;
+	margin: 8px 0;
+	display: block;
+	color: #444;
+}
+
+.event h3 {
+	color: #037;
+}
+ .event h5 {
+ 	color: #244;
+ 	margin: 5px 0;
+ }
+
+.event li {
+	list-style: none;
+	color: #336;
+	display: inline;
+}
+
+.event .invite {
+	color: #880;
+}
+
+.event .creation_date {
+	color: #469;
+	float: right;
+	font-style: italic;
+	margin: 8px 0;
+	display: block;
+}
+
+.event .event_time {
+	float: left;
+	font-style: italic;
+	margin: 8px 0;
+	display: block;
+	color: #A11;
+}
+
+/* REG/AUTH */
+
+.errorlist {
+	color: red;
+}
+
+/* FOOTER */
+
+footer {
+	text-align: center;
+}
+
+footer .container, footer .mini-container {
+	background-color: #333;
+	color: #eef;
+}
+
+footer .container span, footer .mini-container span {
+	display: block;
+	padding: 10px;
+}

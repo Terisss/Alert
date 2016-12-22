@@ -1,0 +1,54 @@
+{% extends 'reg_auth.html' %}
+{% load i18n %}
+{% block 'title' %}
+{% trans "Изменить" %} '{{ event }}'
+{% endblock %}
+{% block 'content-body' %}
+{% if er == 1 %}
+<p class='errorlist'>{% trans "Данные введены не правильно" %}</p>
+{% elif er == 2 %}
+<p class='errorlist'>{% trans "Указано неверное время" %}</p>
+{% endif %}
+<h2>{{ event.title }}</h2>
+<form action="{% url 'update_event' event.id %}" method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<a id='show_delete_participants'>{% trans "Удалить участников" %}</a>
+	<br>
+	<select name="delete_participants" id="delete_participants" multiple='multiple'>
+		{% for member in members %}
+			{% if member != user %}
+			<option value="{{ member.id }}">{{ member.username }}</option>
+			{% endif %}
+		{% endfor %}
+	</select>
+	<br>
+	<a id='show_delete_invites'>{% trans "Удалить приглашения" %}</a>
+	<br>
+	<select name="delete_invites" id="delete_invites" multiple='multiple'>
+		{% for invite in invite_list %}
+			<option value="{{ invite.id }}">{{ invite.username }}</option>
+		{% endfor %}
+	</select>
+	<br>
+	<input type="submit" value='{% trans "Изменить" %}'>
+</form>
+<script>
+	$(document).ready(function(){
+		$('#id_description').val('{{ event.description }}');
+		$('#id_place').val('{{ event.place }}');
+		$('#id_invite_list').val('{{ invite_list }}');
+		$('#id_year').val('{{ event.event_time.year }}');
+		$('#id_month').val('{{ event.event_time.month }}');
+		$('#id_day').val('{{ event.event_time.day }}');
+		$('#id_hour').val({{ event.event_time.hour }} + 6);
+		$('#id_minute').val('{{ event.event_time.minute }}');
+		$('#show_delete_participants').click(function(){
+			$('#delete_participants').toggle();
+		});
+		$('#show_delete_invites').click(function(){
+			$('#delete_invites').toggle();
+		});
+	});
+</script>
+{% endblock %}

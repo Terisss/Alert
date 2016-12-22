@@ -1,0 +1,15 @@
+{% extends 'reg_auth.html' %}
+{% load i18n %}
+{% block 'title' %}
+{% trans "Создание Напоминалки" %}
+{% endblock %}
+{% block 'content-body' %}
+{% if er == 1 %}
+<p class='errorlist'>{% trans "Данные введены не правильно" %}</p>
+{% endif %}
+<form action="{% url 'create_event' %}" method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value='{% trans "Создать" %}'>
+</form>
+{% endblock %}

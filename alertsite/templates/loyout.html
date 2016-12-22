@@ -1,0 +1,91 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	{% block 'css' %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/comment_style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/mini.css' %}">
+	<link rel="stylesheet" href="{% static 'css/button.css' %}">
+	{% endblock %}
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<title>{% block 'title' %}{% trans "Напоминалка" %}{% endblock %}</title>
+</head>
+<body>
+
+<header class='block'>
+{% block 'header' %}
+	<div class="container">
+		<div class='block' id='top-header'>
+			<a href="/"><span id='logo'>{% trans "Напоминалка" %}<i>!</i></span></a>
+			<a href="{% url 'logout' %}"><span class='header-button'>{% trans "Выйти" %}</span></a>
+			<a href="{% url 'user' %}"><span class='header-button'>{{ user.username }}</span></a>
+		</div>
+	</div>
+{% endblock %}
+</header>
+
+<div id='main' class='block'>
+	{% block 'content' %}
+	<div class='container'>
+		<div id='content'><h2>{% trans "Здравствуйте" %}, 
+			{% if user.first_name or user.last_name %}
+				{{ user.first_name }} {{user.last_name}}!
+			{% else %}
+				{{ user.username }}!
+			{% endif %}
+			</h2>
+			<a href="{% url 'event_constructor' %}"><span class='main-button'>{% trans "Создать" %} + </span></a>
+			{% block 'event' %}
+			{% if invites > 0 %}
+			<a href="{% url 'invites' %}"><span class="invite">{% trans "Приглашений" %} <span>{{ invites }}</span></span></a>
+			{% endif %}
+			{% if not_active > 0 %}
+			<a href="{% url 'not_active' %}"><span class="activity">{% trans "Неактивных" %} <span>{{ not_active }}</span></span></a>
+			{% endif %}
+			<div id='event-list' class='block'>
+			{% if events %}
+				{% for event in events %}
+				<div class='event{% if event.is_active == False %} not_active{% endif %}'>
+					<h3>{{ event.title }}</h3>
+					{% if event.place %}
+						<h5>{% trans "Место" %}: {{ event.place }}</h5>
+						<h5>{% trans "Комментариев" %}: {{ event.count_comments }}</h5>
+					{% endif %}
+					<span class="event_time">{% trans "Произойдёт" %}: {{ event.event_time }}</span>
+					<a href="{% url 'event' event.id  %}"><span class='main-button more-button'>{% trans "Подробности" %}</span></a>
+					{% if event.host == user %}
+					<a href="{% url 'delete_event' event.id  %}"><span class='main-button delete_button'>{% trans "Удалить" %}</span></a>
+					<a href="{% url 'event_editor' event.id  %}"><span class='main-button change_button'>{% trans "Изменить" %}</span></a>
+					{% elif invite %}
+					<a href="{% url 'decline' event.id  %}"><span class='main-button delete_button'>{% trans "Отклонить" %}</span></a>
+					<a href="{% url 'accept' event.id  %}"><span class='main-button accept_button'>{% trans "Принять" %}</span></a>
+					{% endif %}
+					{% for i in event.participant_list %}
+						{% if i == user and event.host != user %}
+							<a href="{% url 'leave' event.id  %}"><span class='main-button delete_button'>{% trans "Покинуть" %}</span></a>
+						{% endif %}
+					{% endfor %}
+				</div>
+				{% endfor %}
+			{% else %}
+			{% trans "Отсутствует" %}
+			{% endif %}
+			</div>
+			{% endblock %}
+		</div>
+	</div>
+	{% endblock %}
+</div>
+
+<footer class='block'>
+	{% block 'footer' %}
+	<div class='container'>
+		<span>2016&copy</span>
+	</div>
+	{% endblock %}
+</footer>
+</body>
+</html>

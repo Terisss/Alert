@@ -1,0 +1,75 @@
+#comments {
+	margin: 15px 0;
+}
+
+#comments h3 {
+	display: inline;
+	color: #338;
+}
+
+#comments label {
+	display: none;
+}
+
+#comments hr {
+	margin-top: 10px;
+}
+
+#comments textarea {
+	margin: 10px 0 10px 20%;
+	font-size: 1.25em;
+	padding: 3px;
+	resize: none;
+	color: #005;
+}
+
+#comments input {
+	margin-left: 43.5%;
+	padding: 5px 20px;
+	border-radius: 15px;
+	background-color: #80C8FF;
+	color: #333;
+	border: 2px solid #333;
+	outline: none;
+	cursor: pointer;
+}
+
+.commentary-block {
+	margin-top: 10px;
+	width: 640px;
+	border: 1px solid #333;
+	padding: 5px 5px 5px 50px;
+}
+.commentary-block span {
+	float: right;
+	font-size: 1em;
+	color: #555;
+	margin-left: 10px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+#comments .commentary-block form {
+	display: none;
+}
+
+#comments .commentary-block textarea {
+	margin-top: 15px;
+}
+
+.commentary-block h4, .commentary-block h5{
+	display: inline;
+	float: left;
+	margin-right: 10px;
+	font-size: 1em;
+	color: #555;
+}
+
+.commentary-block h4 {
+	color: #447;
+}
+
+.commentary-block p {
+	margin-top: 5px;
+	margin-left: 5px;
+}

@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-21 16:56+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: alert/forms.py:6
+msgid "Январь"
+msgstr "January"
+
+#: alert/forms.py:7
+msgid "Февраль"
+msgstr "February"
+
+#: alert/forms.py:8
+msgid "Март"
+msgstr "March"
+
+#: alert/forms.py:9
+msgid "Апрель"
+msgstr "April"
+
+#: alert/forms.py:10
+msgid "Май"
+msgstr "May"
+
+#: alert/forms.py:11
+msgid "Июнь"
+msgstr "June"
+
+#: alert/forms.py:12
+msgid "Июль"
+msgstr "July"
+
+#: alert/forms.py:13
+msgid "Август"
+msgstr "August"
+
+#: alert/forms.py:14
+msgid "Сентябрь"
+msgstr "September"
+
+#: alert/forms.py:15
+msgid "Октябрь"
+msgstr "October"
+
+#: alert/forms.py:16
+msgid "Ноябрь"
+msgstr "November"
+
+#: alert/forms.py:17
+msgid "Декабрь"
+msgstr "December"
+
+#: alert/forms.py:23
+msgid "Название"
+msgstr "Title"
+
+#: alert/forms.py:24 alert/forms.py:56
+msgid "Описание"
+msgstr "Decsription"
+
+#: alert/forms.py:25 alert/forms.py:57 alert/templates/event.html.py:11
+#: templates/loyout.html:54
+msgid "Место"
+msgstr "Place"
+
+#: alert/forms.py:26 alert/forms.py:58
+msgid "Год"
+msgstr "Year"
+
+#: alert/forms.py:28 alert/forms.py:60
+msgid "Месяц"
+msgstr "Month"
+
+#: alert/forms.py:32 alert/forms.py:64
+msgid "День"
+msgstr "Day"
+
+#: alert/forms.py:34 alert/forms.py:66
+msgid "Час (от 0 до 23)"
+msgstr "Hour (0-23)"
+
+#: alert/forms.py:39 alert/forms.py:71
+msgid "Минут (от 0 до 59)"
+msgstr "Minute(0-59)"
+
+#: alert/templates/event.html:14
+msgid "Участники"
+msgstr "Members"
+
+#: alert/templates/event.html:19 alert/templates/event.html.py:30
+msgid "Вы"
+msgstr "You"
+
+#: alert/templates/event.html:28
+msgid "Создатель"
+msgstr "Host"
+
+#: alert/templates/event.html:37
+msgid "Приглашены"
+msgstr "Invites"
+
+#: alert/templates/event.html:52
+msgid "Дата создания"
+msgstr "Creation date"
+
+#: alert/templates/event.html:54
+msgid "Произойдет"
+msgstr "Start date"
+
+#: alert/templates/event.html:56
+msgid "Произошло"
+msgstr "Was"
+
+#: alert/templates/event.html:61 templates/loyout.html.py:60
+msgid "Удалить"
+msgstr "Delete"
+
+#: alert/templates/event.html:62 alert/templates/event_editor.html.py:4
+#: alert/templates/event_editor.html:34 templates/loyout.html.py:61
+msgid "Изменить"
+msgstr "Change"
+
+#: alert/templates/event.html:67 templates/loyout.html.py:63
+msgid "Отклонить"
+msgstr "Decline"
+
+#: alert/templates/event.html:68 templates/loyout.html.py:64
+msgid "Принять"
+msgstr "Accept"
+
+#: alert/templates/event.html:74 templates/loyout.html.py:68
+msgid "Покинуть"
+msgstr "Leave"
+
+#: alert/templates/event.html:79 templates/loyout.html.py:55
+msgid "Комментариев"
+msgstr "Comments"
+
+#: alert/templates/event.html:85 alert/templates/event.html.py:118
+msgid "Отправить"
+msgstr "Send"
+
+#: alert/templates/event.html:103 templates/user.html.py:7
+msgid "Редактировать"
+msgstr "Edit"
+
+#: alert/templates/event.html:129
+msgid "Комментарии отсутствуют"
+msgstr "No comments"
+
+#: alert/templates/event_constructor.html:4
+msgid "Создание Напоминалки"
+msgstr "Alert Creation"
+
+#: alert/templates/event_constructor.html:8 alert/templates/event_editor.html:8
+msgid "Данные введены не правильно"
+msgstr "Incorrect input"
+
+#: alert/templates/event_constructor.html:13 templates/loyout.html.py:40
+msgid "Создать"
+msgstr "Create"
+
+#: alert/templates/event_editor.html:10
+msgid "Указано неверное время"
+msgstr "Incorrect time"
+
+#: alert/templates/event_editor.html:16
+msgid "Удалить участников"
+msgstr "Delete members"
+
+#: alert/templates/event_editor.html:26
+msgid "Удалить приглашения"
+msgstr "Delete invites"
+
+#: comment/forms.py:11
+msgid "Присоединяйтесь к обсуждению..."
+msgstr "Let`s talk..."
+
+#: templates/admin/base_site.html:3
+msgid "Напоминалка! Админка"
+msgstr "Alertsite! Administration"
+
+#: templates/admin/base_site.html:7
+msgid "Администрация Напоминалка"
+msgstr "Alertsite Administration"
+
+#: templates/auth.html:4 templates/auth.html.py:13 templates/reg_auth.html:18
+msgid "Авторизация"
+msgstr "Login"
+
+#: templates/auth.html:8
+msgid "Вы ввели данные не правильно"
+msgstr "Incorrect input"
+
+#: templates/loyout.html:14 templates/loyout.html.py:22
+#: templates/reg_auth.html:6
+msgid "Напоминалка"
+msgstr "Alertsite"
+
+#: templates/loyout.html:23
+msgid "Выйти"
+msgstr "Logout"
+
+#: templates/loyout.html:33
+msgid "Здравствуйте"
+msgstr "Greetings"
+
+#: templates/loyout.html:43
+msgid "Приглашений"
+msgstr "Invites"
+
+#: templates/loyout.html:46
+msgid "Неактивных"
+msgstr "Not active"
+
+#: templates/loyout.html:57
+msgid "Произойдёт"
+msgstr "Start date"
+
+#: templates/loyout.html:58
+msgid "Подробности"
+msgstr "More"
+
+#: templates/loyout.html:74
+msgid "Отсутствует"
+msgstr "Nothing"
+
+#: templates/reg.html:4 templates/reg.html.py:13 templates/reg_auth.html:16
+msgid "Регистрация"
+msgstr "Registration"
+
+#: templates/reg.html:8
+msgid ""
+"Либо пользователь с таким именем уже существует, либо вы ввели данные не "
+"правильно"
+msgstr "Either someone has the same name or your input is incorrect"
+
+#: templates/reg_auth.html:14
+msgid "Вы должны зарегистрироваться"
+msgstr "You should be authorized"
+
+#: templates/user.html:4
+msgid "Пользователь"
+msgstr "User"
+
+#: templates/user.html:9
+msgid "Данные введены неправильно"
+msgstr "Incorrect input"
+
+#: templates/user.html:14
+msgid "Сохранить"
+msgstr "Save"

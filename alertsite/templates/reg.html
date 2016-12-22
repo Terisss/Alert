@@ -1,0 +1,15 @@
+{% extends 'reg_auth.html' %}
+{% load i18n %}
+{% block 'title' %}
+{% trans "Регистрация" %}
+{% endblock %}
+{% block 'content-body' %}
+{% if er == 1 %}
+<p class='errorlist'>{% trans "Либо пользователь с таким именем уже существует, либо вы ввели данные не правильно" %}</p>
+{% endif %}
+<form action="{% url 'create_user' %}" method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value='{% trans "Регистрация" %}'>
+</form>
+{% endblock %}

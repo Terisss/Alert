@@ -1,0 +1,27 @@
+{% extends 'loyout.html' %}
+{% load i18n %}
+{% block 'header' %}
+<div class='mini-container'>
+	<div class='block' id='top-header'>
+		<a href="/"><h1>{% trans "Напоминалка" %}<i>!</i></h1></a>
+	</div>
+</div>
+{% endblock %}
+{% block 'content' %}
+<div class='mini-container'>
+	<div id='mini-content'>
+		{% block 'content-body' %}
+		<h2>{% trans "Вы должны зарегистрироваться" %}</h2>
+		<br>
+		<a href="{% url 'reg' %}"><span>{% trans "Регистрация" %}</span></a>
+		<br><br>
+		<a href="{% url 'auth' %}"><span>{% trans "Авторизация" %}</span></a>
+		{% endblock %}
+	</div>
+</div>
+{% endblock %}
+{% block 'footer' %}
+<div class='mini-container'>
+	<span>2016&copy</span>
+</div>
+{% endblock %}

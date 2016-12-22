@@ -1,0 +1,135 @@
+{% extends 'loyout.html' %}
+{% load i18n %}
+{% block 'title' %}
+{{ event.title }}
+{% endblock %}
+{% block 'event' %}
+<div id='event-list' class='block'>
+	<div class='event'>
+		<h3>{{ event.title }}</h3>
+		{% if event.place %}
+			<h5>{% trans "Место" %}: {{ event.place }}</h5>
+		{% endif %}
+		<p>{{ event.description }}</p>
+		<h5>{% trans "Участники" %}:</h5>
+		<ul>
+		{% for member in members %}
+			<li>
+			{% if member.id == user.id %}
+				{% trans "Вы" %} | 
+			{% elif member.first_name or member.last_name %}
+				{{ member.first_name }} {{ member.last_name }} | 
+			{% else %}
+				{{ member.username }} | 
+			{% endif %}
+			</li>
+		{% endfor %}
+        </ul>
+        <h5>{% trans "Создатель" %}: 
+        {% if event.host == user %}
+            {% trans "Вы" %}</h5>
+        {% elif event.host.first_name or event.host.last_name %}
+            {{ event.host.first_name }} {{ event.host.last_name }}</h5>
+        {% else %}
+            {{ event.host.username }}</h5>
+        {% endif %}
+        {% if invite_list %}
+        <h5>{% trans "Приглашены" %}:</h5>
+        <ul>
+        {% for i in invite_list %}
+            <li class='invite'>
+            {% if i == user %}
+                Вы |
+            {% elif i.first_name or i.last_name %}
+                {{ i.first_name }}  {{ i.last_name }} |
+            {% else %}
+                {{ i.username }} |
+            {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+		<span class='creation_date'>{% trans "Дата создания" %}: {{ event.creation_date }}</span>
+        {% if event.is_active %}
+		<span class="event_time">{% trans "Произойдет" %}: {{ event.event_time }}</span>
+        {% else %}
+        <span class="not_active">{% trans "Произошло" %}: {{ event.event_time }}</span>
+        {% endif %}
+        {% if event.host == user %}
+            <br>
+            <br>
+            <a href="{% url 'delete_event' event.id  %}"><span class='main-button delete_button'>{% trans "Удалить" %}</span></a>
+            <a href="{% url 'event_editor' event.id  %}"><span class='main-button change_button'>{% trans "Изменить" %}</span></a>
+        {% endif %}
+        {% for invite in invite_list %}
+            {% if invite == user %}
+            <br>
+            <a href="{% url 'decline' event.id  %}"><span class='main-button delete_button'>{% trans "Отклонить" %}</span></a>
+            <a href="{% url 'accept' event.id  %}"><span class='main-button accept_button'>{% trans "Принять" %}</span></a>
+            {% endif %}
+        {% endfor %}
+        {% for i in members %}
+            {% if i == user and event.host != user %}
+                <br>
+                <a href="{% url 'leave' event.id  %}"><span class='main-button delete_button'>{% trans "Покинуть" %}</span></a>
+            {% endif %}
+        {% endfor %}
+	</div>
+	<div class='block' id='comments'>
+		<h3>{% trans "Комментариев" %}: {{ count_comments }}</h3>
+		<hr>
+		<form action="/comment/{{ event.id }}/" method="POST">
+			{% csrf_token %}
+			{{ form }}
+			<br>
+			<input type="submit" value='{% trans "Отправить" %}'>
+		</form>
+		{% if comments %}
+			{% for comment in comments %}
+			<div class='commentary-block block' id='comment_{{ comment.id }}'>
+				 <h4>
+                {% if comment.author.first_name or comment.author.last_name %}
+                    {{ comment.author.first_name }} {{ comment.author.last_name }}
+                {% else %}
+                    {{ comment.author }}
+                {% endif %}
+                </h4>
+                <h5>
+                 - {{ comment.patch_date }}
+                </h5>
+                {% if comment.author == user %}
+                <a href="{% url 'del_comments' comment.id %}"><span class='delete_comment'>[X]</span></a>
+                {% if comment.was_published_recently %}
+                <span id='update_{{ comment.id }}'>{% trans "Редактировать" %}</span>
+                <script>
+                    $(document).ready(function(){
+                        $('#update_{{ comment.id }}').click(function(){
+                            $('#form_{{ comment.id }}').toggle();
+                            $('#p_{{ comment.id }}').toggle();
+                        });
+                        var text = $('#p_{{ comment.id }}').text();
+                        $('div#comment_{{ comment.id }} textarea').text(text);
+                    });
+                </script>
+                <form action="/comment/{{ comment.id }}/update" method="POST" id='form_{{ comment.id }}'>
+                    {% csrf_token %}
+                    {{ form }}
+                    <br>
+                    <input type="submit" value='{% trans "Отправить" %}'>
+                </form>
+                {% endif %}
+                {% endif %}
+                <br>
+                <p id='p_{{ comment.id }}'>{{ comment.body }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class='commentary-block block'>
+            <p>
+            {% trans "Комментарии отсутствуют" %}
+            </p>
+        </div>
+        {% endif %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+.mini-container {
+	width: 600px;
+	margin: 0 auto;
+}
+
+#mini-content {
+	float: left;
+	width: 560px;
+	background-color: #eff;
+	padding: 20px;
+}
+
+#mini-content {
+	width: 580px;
+	padding: 10px;
+	text-align: center;
+}
+
+#mini-content span {
+	padding: 3px 15px;
+	background-color: #80C8FF;
+	color: #333;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+#mini-content .helptext {
+	display: none;
+}
+
+#mini-content input {
+	display: block;
+	margin: 0 auto;
+}
+
+#mini-content label {
+	display: block;
+}
+
+#delete_participants, #delete_invites {
+	display: none;
+}
